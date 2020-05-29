@@ -1,8 +1,8 @@
 #include <Arduino.h>
 #include <SoftwareSerial.h>
 
-#define TX 4
-#define RX 5
+#define TX 6
+#define RX 7
 
 class BluetoothModule {
   public:
