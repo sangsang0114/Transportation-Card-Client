@@ -4,9 +4,12 @@
 class oledDisplay {
   public:
     oledDisplay();
-    void set()const;
-    void display(const byte &code);
+    void display(const byte &code , const short &balance , const short &price , const byte &valid = true);
+    void displayStop(const byte &code);
+    void displayError(const byte &code);
+
   private:
+    void set()const;
     const U8GLIB_SSD1306_128X64 *u8g;
-    const char* strs[4] = {"on", "off", "nothing" , "lack"};
+    const char* strs[4] = {"", "GET ON", "GET OFF" , "LOW_BALANCE"};
 };
