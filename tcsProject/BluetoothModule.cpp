@@ -14,13 +14,29 @@ void BluetoothModule::sendData(const short &id , const byte &state , const byte 
   }
 }
 
+void BluetoothModule::sendMsg(String msg) {
+  HM10->print(msg);
+}
+
 void BluetoothModule::focus()const {
   HM10->listen();
 }
 
-void BluetoothModule::getData() { //정류장 정보 수신
+byte BluetoothModule::getData() { //정류장 정보 수신
+  this->focus();
+  if (HM10->available() > 0) {
+    return 1;
+  } else {
+    return 0;
+  }
+}
+
+String BluetoothModule::getStop() {
+  this->focus();
   String data = "";
   if (HM10->available() > 0) {
-    data += HM10->readStringUntil('\n');
+    data = HM10->readStringUntil('\n');
+    Serial.println(data);
   }
+  return data;
 }

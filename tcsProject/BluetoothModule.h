@@ -8,9 +8,10 @@ class BluetoothModule {
   public:
     BluetoothModule();
     void sendData(const short &id , const byte &state , const byte balance);
-    void getData();
+    byte getData();
     void focus() const;
-
+    void sendMsg(String msg);
+    String getStop();
   private:
-    const SoftwareSerial* HM10;
+    const SoftwareSerial * HM10;
 };
