@@ -13,30 +13,30 @@
 
 class RfidReader {
   public:
-    RfidReader();
+    RfidReader(const short &price);
     void readCard();
     void writeCard();
     byte getResult()const;
-    bool isGetOff() const;
-    void process();
+    byte isGetOff() const;
     void printUID();
     void confirm();
     short getBalanceFromCard() const;
     void readBlock();
-    void printSectorData();
     void set()const;
+    short getBalance()const;
 
   private:
     const MFRC522 *mfrc522;
     MFRC522::MIFARE_Key key;
     MFRC522::StatusCode status;
+
+  private:
     byte buffer[18];
     byte size = sizeof(buffer);
-    byte dataBlock[16];
 
   private:
     byte resultCode;
-    bool isGettingOff;
+    short price;
     short tempBalance;
 
   private:
