@@ -19,7 +19,7 @@ void oledDisplay::display(const byte &code , const short &price , const short &b
     if (valid == true) {
       u8g->setFont(u8g_font_unifont);
       sprintf(buf, "%d", price);
-      u8g->drawStr(0, 20, "OK-->");
+      u8g->drawStr(0, 20, "OK");
       u8g->drawStr(20, 20, strs[code]);
       u8g->drawStr(0, 40, "price : " );
       u8g->drawStr(80, 40, buf);
@@ -31,6 +31,8 @@ void oledDisplay::display(const byte &code , const short &price , const short &b
       if (code == 50) {
         u8g->setFont(u8g_font_courB18);
         u8g->drawStr(0, 30, "TAG HERE");
+        u8g->setFont(u8g_font_unifont);
+        u8g->drawStr(15, 60, "Seoul City");
       } else {
         u8g->setFont(u8g_font_unifont);
         u8g->drawStr(0, 20, "X ");
@@ -53,6 +55,32 @@ void oledDisplay::displayStop(const byte &code) {
     } else if (code == 12) {
       u8g->drawStr(0, 20, "This Stop is");
       u8g->drawStr(0, 40, "Jeongnenug-Dong");
+    } else if (code == 13) {
+      u8g->drawStr(0, 20, "This Stop is");
+      u8g->drawStr(0, 40, "Hyehwa-Dong");
+    }
+    else if (code == 14) {
+      u8g->drawStr(0, 20, "This Stop is");
+      u8g->drawStr(0, 40, "SineumoStation");
+      u8g->drawStr(0, 60, "Exit Number2");
+    }
+    else if (code == 15) {
+      u8g->drawStr(0, 20, "This Stop is");
+      u8g->drawStr(0, 40, "Yeonseo-Market");
+    } else if (code == 16) {
+      u8g->drawStr(0, 20, "This Stop is");
+      u8g->drawStr(0, 40, "Ichon-Dong");
+    } else if (code == 17) {
+      u8g->drawStr(0, 20, "This Stop is");
+      u8g->drawStr(0, 40, "Seojeong Village");
+      u8g->drawStr(0, 60, "Complex 4");
+    } else if (code == 19) {
+      u8g->drawStr(0, 20, "This Stop is");
+      u8g->drawStr(0, 40, "Sangam-Dong");
+    } else if (code == 18) {
+      u8g->drawStr(0, 20, "This Stop is");
+      u8g->drawStr(0, 40, "GupabalStation");
+      u8g->drawStr(0, 60, "Transit Center");
     }
   } while (u8g->nextPage());
 }

@@ -36,7 +36,7 @@ String BluetoothModule::getStop() {
   String data = "";
   if (HM10->available() > 0) {
     data = HM10->readStringUntil('\n');
-    Serial.println(data);
+//    Serial.println(data);
   }
   return data;
 }

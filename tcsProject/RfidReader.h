@@ -13,17 +13,24 @@
 
 class RfidReader {
   public:
+    void setPrice(const int &price);
     RfidReader(const short &price);
     void readCard();
     void writeCard();
     byte getResult()const;
     byte isGetOff() const;
-    void printUID();
     void confirm();
-    short getBalanceFromCard() const;
+    int getPrice()const;
+    int getBalanceFromCard() const;
     void readBlock();
     void set()const;
-    short getBalance()const;
+    int getBalance()const;
+    int byteToInt(byte *bf);
+    void IntToByte(const int &n);
+
+    const byte* getCardUID()const;
+    void setCardUID();
+    byte* UID;
 
   private:
     const MFRC522 *mfrc522;
@@ -33,12 +40,7 @@ class RfidReader {
   private:
     byte buffer[18];
     byte size = sizeof(buffer);
-
-  private:
     byte resultCode;
-    short price;
-    short tempBalance;
-
-  private:
-    void printByteArrayInHex(const byte *buffer , const byte bufferSize) const;
+    int price;
+    int tempBalance;
 };
